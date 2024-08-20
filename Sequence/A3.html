@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A1</title>
+    <title>A3</title>
     <style>
         *{
             margin: 0;
@@ -69,10 +69,9 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="child">A1. Keliling dan Luas Segitiga Siku-Siku</h1>
+        <h1 class="child">A3. Keliling dan Luas Lingkaran</h1>
         <div class="wrapper">
-            <div class="child"><p style="width: 10%;">Tinggi: </p><input type="text" id="tinggi"></div>
-            <div class="child"><p style="width: 10%;">Alas: </p><input type="text" id="alas"></div>
+            <div class="child"><p style="width: 10%;">Jari-jari: </p><input type="text" id="jarijari"></div>
         </div>
         <div class="child" style="justify-content: space-evenly;">
             <button class="blue" onclick="hitungKeliling()">KELILING</button>
@@ -84,17 +83,14 @@
 </body>
 <script>
     hitungKeliling = () => {
-        let tinggi = Number(document.getElementById('tinggi').value)
-        let alas = Number(document.getElementById('alas').value)
-        let miring = ((tinggi**2) + (alas**2))**0.5
-        let hasil = tinggi+alas+miring
-        document.getElementById('result').innerHTML = "Keliling dari segitiga tersebut adalah: " + hasil.toString()
+        let jarijari = Number(document.getElementById('jarijari').value)
+        let hasil = 2*3.14*jarijari
+        document.getElementById('result').innerHTML = "Keliling dari lingkaran tersebut adalah: " + hasil.toFixed(2).toString()
     }
     hitungLuas = () => {
-        let tinggi = Number(document.getElementById('tinggi').value)
-        let alas = Number(document.getElementById('alas').value)
-        let hasil = 0.5 * alas * tinggi
-        document.getElementById('result').innerHTML = "Luas dari segitiga tersebut adalah: " + hasil.toString()
+        let jarijari = Number(document.getElementById('jarijari').value)
+        let hasil = jarijari * jarijari * 3.14
+        document.getElementById('result').innerHTML = "Keliling dari lingkaran tersebut adalah: " + hasil.toFixed(2).toString()
     }
 </script>
 </html>
