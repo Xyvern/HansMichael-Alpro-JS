@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A7</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            height: 3vh;
+            width: 50%;
+            margin: 5px;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: bisque;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+            height: 40%;
+            width: 45%;
+            flex-wrap: wrap;
+            border-radius: 20px;
+        }
+        .child{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .wrapper{
+            width: 100%;
+            display: block;
+            align-items: center;
+            justify-content: center;
+        }
+        .blue{
+            background-color: aqua;
+        }
+        .red{
+            background-color: lightcoral;
+        }
+        button{
+            width: 10vw;
+            height: 5vh;
+            border-radius: 25px;
+            color: grey;
+            font-size: large;
+            font-weight: bold;
+            margin: 1vw;
+        }
+        #result{
+            color:dimgrey;
+            font-size: larger;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="child">A7. Digit ke i</h1>
+        <button class="red" onclick="changeToA()">Soal A</button>
+        <button class="blue" onclick="changeToB()">Soal B</button>
+        <div class="wrapper">
+            <div class="child"><p style="width: 10%;">Bilangan: </p><input type="text" id="bilangan"></div>
+        </div>
+        <div class="child" style="justify-content: space-evenly;" id="btnsubmit">
+            <button class="red" onclick="hitungA()">HITUNG</button>
+        </div>
+        <div id="result">
+        </div>
+    </div>
+</body>
+<script>
+    changeToB = () => {
+        let wrapper = document.querySelector('.wrapper')
+        wrapper.innerHTML = '<div class="child"><p style="width: 10%;">Bilangan: </p><input type="text" id="bilangan"></div><div class="child"><p style="width: 10%;">Digit ke: </p><input type="text" id="digit"></div>'
+        let button = document.getElementById('btnsubmit')
+        button.innerHTML = '<button class="red" onclick="hitungB()">HITUNG</button>'
+    }
+    changeToA = () => {
+        let wrapper = document.querySelector('.wrapper')
+        wrapper.innerHTML = '<div class="child"><p style="width: 10%;">Bilangan: </p><input type="text" id="bilangan"></div>'
+        let button = document.getElementById('btnsubmit')
+        button.innerHTML = '<button class="red" onclick="hitungA()">HITUNG</button>'
+    }
+    hitungA = () => {
+        let bilangan = Number(document.getElementById('bilangan').value)
+        let ratusan = Math.floor(bilangan/100) % 10
+        let puluhan = Math.floor(bilangan/10) % 10
+        let satuan = Math.floor(bilangan/1) % 10
+        let hasil = 'Ratusan: ' + ratusan.toString() + '</br>' + 'Puluhan: ' + puluhan.toString() + '</br>' + 'Satuan: ' + satuan.toString() + '</br>'
+        document.getElementById('result').innerHTML = hasil
+    }
+    hitungB = () => {
+        let bilangan = Number(document.getElementById('bilangan').value)
+        let digit = Number(document.getElementById('digit').value)
+        let hasil = "Digit ke " + digit.toString() + "dari bilangan " + bilangan.toString() + " adalah: " + (Math.floor(bilangan/(10**(digit-1)))%10).toString()
+        document.getElementById('result').innerHTML = hasil
+    }
+</script>
+</html>

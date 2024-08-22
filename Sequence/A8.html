@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A8</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            height: 3vh;
+            width: 50%;
+            margin: 5px;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: bisque;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+            height: 40%;
+            width: 45%;
+            flex-wrap: wrap;
+            border-radius: 20px;
+        }
+        .child{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .wrapper{
+            width: 100%;
+            display: block;
+            align-items: center;
+            justify-content: center;
+        }
+        .blue{
+            background-color: aqua;
+        }
+        .red{
+            background-color: lightcoral;
+        }
+        button{
+            width: 10vw;
+            height: 5vh;
+            border-radius: 25px;
+            color: grey;
+            font-size: large;
+            font-weight: bold;
+        }
+        #result{
+            color:dimgrey;
+            font-size: larger;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="child">A8. Menukar Variable</h1>
+        <div class="wrapper">
+            <div class="child"><p style="width: 10%;">Nilai a: </p><input type="text" id="a"></div>
+            <div class="child"><p style="width: 10%;">Nilai b: </p><input type="text" id="b"></div>
+        </div>
+        <div class="child" style="justify-content: space-evenly;">
+            <button class="red" onclick="tukar()">TUKAR</button>
+        </div>
+        <div id="result">
+        </div>
+    </div>
+</body>
+<script>
+    tukar = () => {
+        let a = Number(document.getElementById('a').value)
+        let b = Number(document.getElementById('b').value)
+        let c = b
+        let hasil = 'Nilai a sebelum ditukar adalah: ' + a.toString() + " & Nilai b sebelum ditukar adalah: " + b.toString() + "</br>"
+        b = a
+        a = c
+        hasil += 'Nilai a setelah ditukar adalah: ' + a.toString() + " & Nilai b setelah ditukar adalah: " + b.toString()
+        document.getElementById('result').innerHTML = hasil
+    }
+</script>
+</html>
