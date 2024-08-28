@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B4</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            height: 3vh;
+            width: 50%;
+            margin: 5px;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: bisque;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+            height: 40%;
+            width: 45%;
+            flex-wrap: wrap;
+            border-radius: 20px;
+        }
+        .child{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .wrapper{
+            width: 100%;
+            display: block;
+            align-items: center;
+            justify-content: center;
+        }
+        .blue{
+            background-color: aqua;
+        }
+        .red{
+            background-color: lightcoral;
+        }
+        button{
+            width: 10vw;
+            height: 5vh;
+            border-radius: 25px;
+            color: grey;
+            font-size: large;
+            font-weight: bold;
+        }
+        #result{
+            color:dimgrey;
+            font-size: larger;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="child">B4. Urutkan Bilangan Dari Yang Terkecil</h1>
+        <div class="wrapper">
+            <div class="child"><p style="width: 10%;">Bilangan 1: </p><input type="text" id="bilangan"></div>
+            <div class="child"><p style="width: 10%;">Bilangan 2: </p><input type="text" id="bilangan2"></div>
+            <div class="child"><p style="width: 10%;">Bilangan 3: </p><input type="text" id="bilangan3"></div>
+        </div>
+        <div class="child" style="justify-content: space-evenly;">
+            <button class="blue" onclick="hitung()">HITUNG</button>
+        </div>
+        <div id="result">
+        </div>
+    </div>
+</body>
+<script>
+    hitung = () => {
+        let bilangan = Number(document.getElementById('bilangan').value)
+        let bilangan2 = Number(document.getElementById('bilangan2').value)
+        let bilangan3 = Number(document.getElementById('bilangan3').value)
+        let result = ''
+        if (bilangan<bilangan2) {
+            if (bilangan<bilangan3) {
+                if (bilangan2<bilangan3) {
+                    result = bilangan.toString() + ", " + bilangan2.toString() + ", " + bilangan3.toString()
+                }else{
+                    result = bilangan.toString() + ", " + bilangan3.toString() + ", " + bilangan2.toString()
+                }
+            }else{
+                result = bilangan3.toString() + ", " + bilangan.toString() + ", " + bilangan2.toString()
+            }
+        }else{
+            if (bilangan2<bilangan3) {
+                if (bilangan<bilangan3) {
+                    result = bilangan2.toString() + ", " + bilangan.toString() + ", " + bilangan3.toString()
+                }else{
+                    result = bilangan2.toString() + ", " + bilangan3.toString() + ", " + bilangan.toString()
+                }
+            }else{
+                result = bilangan3.toString() + ", " + bilangan2.toString() + ", " + bilangan.toString()
+            }
+        }
+        let hasil = document.getElementById('result')
+        hasil.innerHTML = "Urutan bilangan tersebut dari yang terkecil adalah: " + result
+    }
+</script>
+</html>

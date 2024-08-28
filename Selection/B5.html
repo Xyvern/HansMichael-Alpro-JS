@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B5</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            height: 3vh;
+            width: 50%;
+            margin: 5px;
+        }
+        select{
+            height: 3vh;
+            width: 50%;
+            margin: 5px;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: bisque;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+            height: 40%;
+            width: 45%;
+            flex-wrap: wrap;
+            border-radius: 20px;
+        }
+        .child{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .wrapper{
+            width: 100%;
+            display: block;
+            align-items: center;
+            justify-content: center;
+        }
+        .blue{
+            background-color: aqua;
+        }
+        .red{
+            background-color: lightcoral;
+        }
+        button{
+            width: 10vw;
+            height: 5vh;
+            border-radius: 25px;
+            color: grey;
+            font-size: large;
+            font-weight: bold;
+        }
+        #result{
+            color:dimgrey;
+            font-size: larger;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="child">B5. Konversi Mata Uang</h1>
+        <div class="wrapper">
+            <div class="child"><p style="width: 10%;">Bilangan 1: </p><input type="text" id="bilangan"></div>
+            <div class="child">
+                <p style="width: 10%;">Kode mata uang: </p>
+                <select id="kode">
+                    <option value="usd">US Dollar</option>
+                    <option value="idr">ID Rupiah</option>
+                    <option value="myr">Ringgit Malaysia</option>
+                </select>
+            </div>
+        </div>
+        <div class="child" style="justify-content: space-evenly;">
+            <button class="blue" onclick="hitung()">HITUNG</button>
+        </div>
+        <div id="result">
+        </div>
+    </div>
+</body>
+<script>
+    hitung = () => {
+        let bilangan = Number(document.getElementById('bilangan').value)
+        let kode = document.getElementById('kode').value
+        let result = ""
+        if (kode == "usd") {
+            let idr = bilangan * 9325
+            let myr = bilangan * 3.85
+            result = bilangan.toString() + "USD setara dengan IDR " + idr.toString() + " dan MYR " + myr.toString()
+        }else if (kode == "idr") {
+            let usd = bilangan / 9325
+            let myr = (bilangan / 9325) * 3.85
+            result = bilangan.toString() + "IDR setara dengan USD " + usd.toString() + " dan MYR " + myr.toString()
+        }else{
+            let usd = bilangan / 3.85
+            let idr = bilangan / 3.85 * 9325
+            result = bilangan.toString() + "MYR setara dengan USD " + usd.toString() + " dan IDR " + idr.toString()
+        }
+        let hasil = document.getElementById('result')
+        hasil.innerHTML = result
+    }
+</script>
+</html>
