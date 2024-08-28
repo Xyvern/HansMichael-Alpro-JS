@@ -14,10 +14,10 @@
 
  ## Local
   1. Clone the repository:
-    ```
-    bash
-    git clone https://github.com/xyvern/HansMichael-Alpro-JS.git
-    ```
+```
+bash
+git clone https://github.com/xyvern/HansMichael-Alpro-JS.git
+```
 
 # Project Structure
  The project structure is as follow:
