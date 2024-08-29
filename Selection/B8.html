@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B5</title>
+    <title>B8</title>
     <style>
         *{
             margin: 0;
@@ -75,17 +75,10 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="child">B5. Konversi Satuan Panjang</h1>
+        <h1 class="child">B8. Pernyataan Logika</h1>
         <div class="wrapper">
-            <div class="child"><p style="width: 10%;">Panjang: </p><input type="text" id="bilangan"></div>
-            <div class="child">
-                <p style="width: 10%;">Kode satuan: </p>
-                <select id="kode">
-                    <option value="km">Kilometer</option>
-                    <option value="ft">Feet</option>
-                    <option value="mil">Miles</option>
-                </select>
-            </div>
+            <div class="child"><p style="width: 10%;">Kode Jenis Kelamin (p / w): </p><input type="text" id="jk"></div>
+            <div class="child"><p style="width: 10%;">Umur: </p><input type="text" id="umur"></div>
         </div>
         <div class="child" style="justify-content: space-evenly;">
             <button class="blue" onclick="hitung()">HITUNG</button>
@@ -96,24 +89,11 @@
 </body>
 <script>
     hitung = () => {
-        let bilangan = Number(document.getElementById('bilangan').value)
-        let kode = document.getElementById('kode').value
-        let result = ""
-        if (kode == "km") {
-            let ft = bilangan * 3281
-            let mil = bilangan * 0.6214
-            result = bilangan.toFixed(2).toString() + " Kilometer setara dengan " + ft.toFixed(2).toString() + " Feets dan " + mil.toFixed(2).toString() + " Miles"
-        }else if (kode == "ft") {
-            let km = bilangan / 3281 * 1
-            let mil = bilangan / 3281 * 0.6214
-            result = bilangan.toFixed(2).toString() + " Feets setara dengan " + km.toFixed(2).toString() + " Kilometer dan " + mil.toFixed(2).toString() + " Miles"
-        }else{
-            let km = bilangan / 0.6214 * 1
-            let ft = bilangan / 0.6214 * 3281
-            result = bilangan.toFixed(2).toString() + " Miles setara dengan " + km.toFixed(2).toString() + " Kilometer dan " + ft.toFixed(2).toString() + " Feets"
-        }
+        let umur = Number(document.getElementById('umur').value)
+        let jk = document.getElementById('jk').value.toLowerCase() 
+        let result = "Karyawan " + (jk === "p" ? "Laki-laki" : 'Wanita') + " yang berumur " + umur.toString() + " tahun."
         let hasil = document.getElementById('result')
-        hasil.innerHTML = result
+        hasil.innerHTML = "Hasil operasi adalah: "+ result
     }
 </script>
 </html>
