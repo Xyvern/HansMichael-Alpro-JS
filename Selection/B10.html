@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B10</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            height: 3vh;
+            width: 50%;
+            margin: 5px;
+        }
+        select{
+            height: 3vh;
+            width: 50%;
+            margin: 5px;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: bisque;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+            height: 40%;
+            width: 45%;
+            flex-wrap: wrap;
+            border-radius: 20px;
+        }
+        .child{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .wrapper{
+            width: 100%;
+            display: block;
+            align-items: center;
+            justify-content: center;
+        }
+        .blue{
+            background-color: aqua;
+        }
+        .red{
+            background-color: lightcoral;
+        }
+        button{
+            width: 10vw;
+            height: 5vh;
+            border-radius: 25px;
+            color: grey;
+            font-size: large;
+            font-weight: bold;
+        }
+        #result{
+            color:dimgrey;
+            font-size: larger;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="child">B10. Faktor Bentuk Kuadrat ax<sup>2</sup> + bx + c = 0</h1>
+        <div class="wrapper">
+            <div class="child"><p style="width: 10%;">Koef. a: </p><input type="text" id="a"></div>
+            <div class="child"><p style="width: 10%;">Koef. b: </p><input type="text" id="b"></div>
+            <div class="child"><p style="width: 10%;">Koef. c: </p><input type="text" id="c"></div>
+        </div>
+        <div class="child" style="justify-content: space-evenly;">
+            <button class="blue" onclick="hitung()">HITUNG</button>
+        </div>
+        <div id="result">
+        </div>
+    </div>
+</body>
+<script>
+    hitung = () => {
+        let a = Number(document.getElementById('a').value)
+        let b = Number(document.getElementById('b').value)
+        let c = Number(document.getElementById('c').value)
+        let d = b**2 - 4*a*c
+        let result = ""
+        if (d<0) {
+            result = "Tidak ada faktor real"
+        }else if (d==0) {
+            let faktor = -b / (2*a)
+            result = "Terdapat 1 faktor real: " + faktor.toString()
+        }else{
+            let faktor = (-b + Math.sqrt(d)) / (2*a)
+            let faktor2 = (-b - Math.sqrt(d)) / (2*a)
+            result = "Terdapat 2 faktor real: " + faktor.toString() + " dan " + faktor2.toString()
+        }
+        let ans = document.getElementById('result')
+        ans.innerHTML = result
+    }
+</script>
+</html>
